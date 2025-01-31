@@ -1,4 +1,12 @@
 import streamlit as st
+
+# Must be the first Streamlit command
+st.set_page_config(
+    page_title="📰 News Article Classifier",
+    page_icon="📰",
+    layout="wide"
+)
+
 import pandas as pd
 import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -156,12 +164,6 @@ def extract_key_phrases(text):
         return []
 
 def main():
-    st.set_page_config(
-        page_title="📰 News Article Classifier",
-        page_icon="📰",
-        layout="wide"
-    )
-    
     st.title("📰 News Article Classifier")
     st.write("This app classifies news articles into different categories using machine learning.")
     
