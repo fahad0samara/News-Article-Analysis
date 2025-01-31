@@ -4,9 +4,9 @@ from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.pipeline import Pipeline
 from sklearn.metrics import classification_report, confusion_matrix
-import matplotlib.pyplot as plt
-import seaborn as sns
 from sklearn.ensemble import VotingClassifier, GradientBoostingClassifier
+from sklearn.linear_model import LogisticRegression
+from sklearn.svm import LinearSVC
 import joblib
 from transformers import pipeline, AutoModelForSequenceClassification, AutoTokenizer
 from transformers import MarianMTModel, MarianTokenizer
@@ -130,9 +130,6 @@ class EnhancedNewsClassifier:
         self.models['gradient_boosting'] = gb_pipeline
         
         # 2. Enhanced Ensemble
-        from sklearn.linear_model import LogisticRegression
-        from sklearn.svm import LinearSVC
-        
         ensemble = VotingClassifier(estimators=[
             ('gb', gb_pipeline),
             ('lr', Pipeline([
