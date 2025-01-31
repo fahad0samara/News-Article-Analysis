@@ -9,6 +9,53 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.svm import LinearSVC
 import joblib
 
+# Sample dataset
+SAMPLE_DATA = {
+    'text': [
+        # Technology articles
+        "Apple unveils new iPhone with revolutionary AI capabilities and enhanced camera system",
+        "Microsoft releases Windows update with advanced security features and cloud integration",
+        "Google announces breakthrough in quantum computing research",
+        "Tesla's new electric vehicle features autonomous driving capabilities",
+        "Amazon launches new cloud computing service for artificial intelligence",
+        
+        # Business articles
+        "Stock market reaches record high as tech companies report strong earnings",
+        "Federal Reserve announces interest rate decision impact on economy",
+        "Goldman Sachs reports quarterly profits exceeding market expectations",
+        "Oil prices surge amid global supply chain concerns",
+        "Startup raises million in Series A funding round",
+        
+        # Sports articles
+        "Manchester United wins dramatic match with last-minute goal",
+        "NBA player breaks scoring record in championship game",
+        "Tennis star advances to Wimbledon finals after intense match",
+        "Olympic athlete sets new world record in track event",
+        "Football team announces new coach for upcoming season",
+        
+        # Entertainment articles
+        "New Marvel movie breaks box office records worldwide",
+        "Popular singer announces world tour dates",
+        "Netflix series wins multiple Emmy awards",
+        "Celebrity couple announces engagement on social media",
+        "New video game release attracts millions of players",
+        
+        # Politics articles
+        "President signs new climate change legislation",
+        "Parliament debates new economic policy",
+        "Election results show shift in voter preferences",
+        "International summit addresses global security concerns",
+        "Political leader announces campaign for upcoming election"
+    ],
+    'category': [
+        'tech', 'tech', 'tech', 'tech', 'tech',
+        'business', 'business', 'business', 'business', 'business',
+        'sports', 'sports', 'sports', 'sports', 'sports',
+        'entertainment', 'entertainment', 'entertainment', 'entertainment', 'entertainment',
+        'politics', 'politics', 'politics', 'politics', 'politics'
+    ]
+}
+
 class NewsClassifier:
     def __init__(self):
         self.vectorizer = TfidfVectorizer(
@@ -44,7 +91,7 @@ class NewsClassifier:
                 ('lr', self.lr),
                 ('svm', self.svm)
             ],
-            voting='hard'  # Changed to hard voting since LinearSVC doesn't support predict_proba
+            voting='hard'  # Using hard voting since LinearSVC doesn't support predict_proba
         )
         
         # Create pipeline
@@ -89,10 +136,10 @@ class NewsClassifier:
         """Load model from file"""
         return joblib.load(filepath)
 
-def train_and_save_model(data_path, model_output_path):
-    """Train model and save it to file"""
-    # Load data
-    df = pd.read_csv(data_path)
+def train_and_save_model(model_output_path):
+    """Train model using sample data and save it"""
+    # Create DataFrame from sample data
+    df = pd.DataFrame(SAMPLE_DATA)
     
     # Initialize classifier
     classifier = NewsClassifier()
@@ -106,10 +153,8 @@ def train_and_save_model(data_path, model_output_path):
     return results
 
 if __name__ == "__main__":
-    # Example usage
-    data_path = "bbc-text-cleaned.csv"  # Update with your data path
+    # Train and save model
     model_output_path = "models/ensemble_model.joblib"
-    
-    results = train_and_save_model(data_path, model_output_path)
+    results = train_and_save_model(model_output_path)
     print("\nClassification Report:")
     print(results['classification_report'])
