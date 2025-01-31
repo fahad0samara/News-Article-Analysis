@@ -1,0 +1,32 @@
+=== Example Predictions ===
+
+Text: The stock market showed significant gains today as tech companies reported strong earnings.
+Logistic Regression: business
+Naive Bayes: business
+Linear SVM: business
+Random Forest: business
+
+Text: The football match ended in a dramatic penalty shootout.
+Logistic Regression: sport
+Naive Bayes: sport
+Linear SVM: sport
+Random Forest: sport
+
+Text: The new smartphone features an innovative camera system and improved battery life.
+Logistic Regression: business
+Naive Bayes: tech
+Linear SVM: tech
+Random Forest: sport
+
+Text: The Oscar-winning actor announced their next big movie project.
+Logistic Regression: entertainment
+Naive Bayes: entertainment
+Linear SVM: entertainment
+Random Forest: entertainment
+
+Text: The prime minister addressed concerns about the new policy in parliament.
+Logistic Regression: politics
+Naive Bayes: politics
+Linear SVM: politics
+Random Forest: sport
+

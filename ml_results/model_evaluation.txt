@@ -1,0 +1,82 @@
+=== Model Evaluation Results ===
+
+Logistic Regression Results:
+----------------------------
+Test Accuracy: 0.9691
+Cross-validation Scores: [0.95961995 0.97624703 0.97387173 0.98099762 0.96190476]
+Average CV Score: 0.9705 (+/- 0.0167)
+
+Classification Report:
+               precision    recall  f1-score   support
+
+     business       0.96      0.97      0.97       100
+entertainment       0.97      0.93      0.95        73
+     politics       0.97      0.97      0.97        80
+        sport       1.00      1.00      1.00       100
+         tech       0.93      0.96      0.94        68
+
+     accuracy                           0.97       421
+    macro avg       0.97      0.97      0.97       421
+ weighted avg       0.97      0.97      0.97       421
+
+
+Naive Bayes Results:
+--------------------
+Test Accuracy: 0.9667
+Cross-validation Scores: [0.95724466 0.96912114 0.96437055 0.96674584 0.9452381 ]
+Average CV Score: 0.9605 (+/- 0.0172)
+
+Classification Report:
+               precision    recall  f1-score   support
+
+     business       0.96      0.98      0.97       100
+entertainment       0.97      0.93      0.95        73
+     politics       0.98      0.99      0.98        80
+        sport       0.98      1.00      0.99       100
+         tech       0.94      0.91      0.93        68
+
+     accuracy                           0.97       421
+    macro avg       0.97      0.96      0.96       421
+ weighted avg       0.97      0.97      0.97       421
+
+
+Linear SVM Results:
+-------------------
+Test Accuracy: 0.9739
+Cross-validation Scores: [0.97862233 0.97862233 0.97387173 0.98574822 0.96904762]
+Average CV Score: 0.9772 (+/- 0.0111)
+
+Classification Report:
+               precision    recall  f1-score   support
+
+     business       0.98      0.97      0.97       100
+entertainment       0.96      0.99      0.97        73
+     politics       0.99      0.96      0.97        80
+        sport       0.99      1.00      1.00       100
+         tech       0.94      0.94      0.94        68
+
+     accuracy                           0.97       421
+    macro avg       0.97      0.97      0.97       421
+ weighted avg       0.97      0.97      0.97       421
+
+
+Random Forest Results:
+----------------------
+Test Accuracy: 0.9382
+Cross-validation Scores: [0.90261283 0.94774347 0.94774347 0.97862233 0.93809524]
+Average CV Score: 0.9430 (+/- 0.0487)
+
+Classification Report:
+               precision    recall  f1-score   support
+
+     business       0.93      0.94      0.94       100
+entertainment       0.96      0.93      0.94        73
+     politics       0.93      0.95      0.94        80
+        sport       0.95      0.97      0.96       100
+         tech       0.92      0.88      0.90        68
+
+     accuracy                           0.94       421
+    macro avg       0.94      0.93      0.94       421
+ weighted avg       0.94      0.94      0.94       421
+
+

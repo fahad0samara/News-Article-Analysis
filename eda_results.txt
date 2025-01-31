@@ -1,0 +1,39 @@
+=== BBC News Dataset EDA ===
+
+1. Basic Dataset Information:
+Total articles: 2225
+Categories: tech, business, sport, entertainment, politics
+
+2. Statistical Summary of Text Features:
+        word_count    char_count  avg_word_length
+count  2225.000000   2225.000000      2225.000000
+mean    382.302921   2174.310562         4.703212
+std     238.265208   1319.759983         0.269425
+min      89.000000    489.000000         3.862471
+25%     244.000000   1382.000000         4.527228
+50%     330.000000   1883.000000         4.707692
+75%     470.000000   2706.000000         4.888889
+max    4449.000000  24789.000000         5.675214
+
+3. Category Distribution:
+category
+sport            511
+business         510
+politics         417
+tech             401
+entertainment    386
+Name: count, dtype: int64
+
+4. Average Text Length by Category:
+category
+tech             499.107232
+politics         453.023981
+sport            330.657534
+entertainment    329.909326
+business         324.039216
+Name: word_count, dtype: float64
+
+
+5. Statistical Tests:
+Shapiro-Wilk test p-value for word_count: 0.0
+(p-value < 0.05 indicates non-normal distribution)

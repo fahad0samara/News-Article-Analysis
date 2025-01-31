@@ -1,0 +1,121 @@
+=== BBC News Cleaned Dataset Analysis ===
+
+1. Basic Statistics
+-----------------
+Total articles: 2104
+
+Category Distribution:
+category
+business         503
+sport            499
+politics         399
+entertainment    364
+tech             339
+Name: count, dtype: int64
+
+2. Text Length Statistics
+---------------------
+Word Count Statistics:
+count    2104.000000
+mean      375.284696
+std       169.472220
+min        90.000000
+25%       248.000000
+50%       333.000000
+75%       470.250000
+max      1045.000000
+Name: word_count, dtype: float64
+
+Text Length Statistics:
+count    2104.000000
+mean     2179.204373
+std       981.834194
+min       501.000000
+25%      1430.500000
+50%      1945.000000
+75%      2765.500000
+max      5810.000000
+Name: text_length, dtype: float64
+
+3. Text Complexity Metrics
+----------------------
+Average Word Length by Category:
+category
+business         4.878599
+entertainment    4.668460
+politics         4.769227
+sport            4.579650
+tech             4.816540
+Name: avg_word_length, dtype: float64
+
+Average Sentence Length by Category:
+category
+business         22.621453
+entertainment    22.514619
+politics         23.179869
+sport            20.806313
+tech             22.263895
+Name: avg_sentence_length, dtype: float64
+
+4. Most Common Words by Category
+---------------------------
+
+Business:
+said: 1296
+-: 766
+us: 756
+mr: 596
+year: 460
+would: 459
+also: 431
+new: 401
+company: 390
+last: 356
+
+Entertainment:
+film: 644
+-: 575
+said: 498
+best: 496
+also: 372
+one: 318
+us: 312
+new: 298
+year: 281
+music: 273
+
+Politics:
+mr: 1564
+said: 1440
+would: 979
+-: 695
+labour: 693
+government: 609
+.: 538
+people: 525
+blair: 497
+party: 482
+
+Sport:
+said: 518
+-: 450
+england: 432
+first: 404
+last: 360
+win: 352
+game: 351
+world: 350
+would: 346
+two: 336
+
+Tech:
+said: 1034
+people: 767
+also: 441
+mr: 441
+new: 432
+-: 417
+could: 409
+one: 399
+technology: 399
+would: 383

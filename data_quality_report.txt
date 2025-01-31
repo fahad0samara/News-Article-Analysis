@@ -1,0 +1,33 @@
+=== BBC News Dataset Quality Report ===
+
+1. Missing Values Analysis:
+          Missing Values  Missing Percentage
+category               0                 0.0
+text                   0                 0.0
+
+2. Empty/Whitespace Analysis:
+          Empty Strings  Whitespace Only
+category              0                0
+text                  0                0
+
+3. Data Quality Summary:
+Total rows: 2225
+Duplicate rows: 99
+
+4. Category Distribution:
+category
+sport            511
+business         510
+politics         417
+tech             401
+entertainment    386
+Name: count, dtype: int64
+
+5. Text Length Statistics:
+Minimum text length: 501
+Maximum text length: 25483
+Average text length: 2262.94
+
+Unusual text lengths:
+Texts shorter than 100 characters: 0
+Texts longer than 10000 characters: 7

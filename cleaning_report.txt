@@ -1,0 +1,36 @@
+=== Data Cleaning Report ===
+
+Original dataset size: 2225 articles
+Cleaned dataset size: 2104 articles
+Rows removed: 121
+
+Category distribution in cleaned dataset:
+category
+business         503
+sport            499
+politics         399
+entertainment    364
+tech             339
+Name: count, dtype: int64
+
+Text length statistics in cleaned dataset:
+count    2104.000000
+mean     2179.204373
+std       981.834194
+min       501.000000
+25%      1430.500000
+50%      1945.000000
+75%      2765.500000
+max      5810.000000
+Name: text_length, dtype: float64
+
+Word count statistics in cleaned dataset:
+count    2104.000000
+mean      375.284696
+std       169.472220
+min        90.000000
+25%       248.000000
+50%       333.000000
+75%       470.250000
+max      1045.000000
+Name: word_count, dtype: float64

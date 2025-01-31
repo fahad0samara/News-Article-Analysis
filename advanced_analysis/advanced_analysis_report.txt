@@ -1,0 +1,77 @@
+=== Advanced Analysis Report ===
+
+1. Sentiment Analysis
+-----------------
+Average Sentiment by Category:
+category
+business         0.059707
+entertainment    0.146171
+politics         0.068145
+sport            0.112550
+tech             0.103085
+Name: sentiment, dtype: float64
+
+2. Topic Modeling Results
+---------------------
+Topic 1: mobile, people, technology, said, users, games, software, computer, online, digital
+Topic 2: film, best, said, club, awards, award, year, star, chelsea, music
+Topic 3: england, game, win, match, injury, cup, ireland, world, final, wales
+Topic 4: yukos, russian, deutsche, bid, takeover, russia, offer, oil, shareholders, bankruptcy
+Topic 5: said, mr, government, labour, year, election, blair, party, company, new
+
+3. Parts of Speech Analysis
+------------------------
+Average POS Distribution:
+NN      82.74
+IN      42.79
+JJ      35.20
+DT      33.49
+NNS     25.77
+.       16.86
+VB      16.02
+VBD     14.14
+RB      13.05
+CC      11.08
+PRP     10.92
+TO      10.73
+VBN     10.09
+VBZ      9.77
+CD       9.14
+VBP      8.75
+VBG      7.68
+MD       5.53
+PRP$     4.15
+:        3.75
+WDT      1.64
+RP       1.57
+WP       1.35
+JJS      1.31
+WRB      1.28
+JJR      1.17
+(        0.82
+)        0.82
+RBR      0.70
+$        0.63
+EX       0.62
+NNP      0.30
+RBS      0.28
+FW       0.13
+PDT      0.11
+WP$      0.08
+SYM      0.07
+NNPS     0.04
+UH       0.02
+#        0.01
+``       0.01
+dtype: float64
+
+4. Statistical Tests
+----------------
+ANOVA test for word count differences:
+F-statistic: 103.9955
+p-value: 0.0000
+
+Chi-square test for category distribution:
+Chi-square statistic: 55.2871
+p-value: 0.0000
+

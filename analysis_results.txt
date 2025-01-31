@@ -1,0 +1,21 @@
+=== BBC News Dataset Analysis ===
+
+Total number of articles: 2225
+
+Articles per category:
+category
+sport            511
+business         510
+politics         417
+tech             401
+entertainment    386
+Name: count, dtype: int64
+
+Average words per category:
+category
+business         324.04
+entertainment    329.91
+politics         453.02
+sport            330.66
+tech             499.11
+Name: word_count, dtype: float64

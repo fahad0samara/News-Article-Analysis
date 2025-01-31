@@ -1,0 +1,38 @@
+=== Advanced Model Evaluation ===
+
+Gradient Boosting Results:
+--------------------------------------------------
+Accuracy: 0.9406
+
+Classification Report:
+               precision    recall  f1-score   support
+
+     business       0.94      0.90      0.92       100
+entertainment       0.95      0.96      0.95        73
+     politics       0.93      0.94      0.93        80
+        sport       0.98      0.99      0.99       100
+         tech       0.90      0.91      0.91        68
+
+     accuracy                           0.94       421
+    macro avg       0.94      0.94      0.94       421
+ weighted avg       0.94      0.94      0.94       421
+
+
+Ensemble Results:
+--------------------------------------------------
+Accuracy: 0.9739
+
+Classification Report:
+               precision    recall  f1-score   support
+
+     business       0.98      0.98      0.98       100
+entertainment       0.97      0.97      0.97        73
+     politics       0.99      0.96      0.97        80
+        sport       0.99      1.00      1.00       100
+         tech       0.93      0.94      0.93        68
+
+     accuracy                           0.97       421
+    macro avg       0.97      0.97      0.97       421
+ weighted avg       0.97      0.97      0.97       421
+
+
