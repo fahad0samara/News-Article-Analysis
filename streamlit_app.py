@@ -11,11 +11,19 @@ from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 
 # Download required NLTK data
-try:
-    nltk.download('punkt')
-    nltk.download('stopwords')
-except:
-    pass
+@st.cache_resource
+def download_nltk_data():
+    try:
+        nltk.download('punkt')
+        nltk.download('stopwords')
+        nltk.download('averaged_perceptron_tagger')
+        return True
+    except Exception as e:
+        st.error(f"Error downloading NLTK data: {str(e)}")
+        return False
+
+# Download NLTK data at startup
+nltk_ready = download_nltk_data()
 
 # Sample dataset for training
 SAMPLE_DATA = {
@@ -116,30 +124,33 @@ def train_model():
     pipeline.fit(df['text'], df['category'])
     return pipeline
 
-def get_key_phrases(text, top_n=8):
-    """Extract key phrases from text"""
+def extract_key_phrases(text):
+    """Extract key phrases using TF-IDF"""
     try:
-        # Tokenize
-        words = word_tokenize(text.lower())
+        # Create TF-IDF vectorizer
+        vectorizer = TfidfVectorizer(
+            max_features=50,
+            ngram_range=(1, 2),
+            stop_words='english'
+        )
         
-        # Remove stopwords and short words
-        stop_words = set(stopwords.words('english'))
-        words = [word for word in words if word not in stop_words and len(word) > 2]
+        # Fit and transform the text
+        tfidf_matrix = vectorizer.fit_transform([text])
         
-        # Get word frequencies
-        freq_dist = nltk.FreqDist(words)
+        # Get feature names and scores
+        feature_names = vectorizer.get_feature_names_out()
+        scores = tfidf_matrix.toarray()[0]
         
-        # Get bigrams
-        bigrams = list(nltk.bigrams(words))
-        bigram_freq = nltk.FreqDist(bigrams)
+        # Sort features by score
+        sorted_idx = np.argsort(scores)[::-1]
         
-        # Combine single words and bigrams
-        phrases = [(word, freq) for word, freq in freq_dist.items()]
-        phrases.extend([(' '.join(bigram), freq) for bigram, freq in bigram_freq.items()])
+        # Get top phrases (non-zero scores only)
+        phrases = []
+        for idx in sorted_idx:
+            if scores[idx] > 0 and len(phrases) < 8:  # Get top 8 non-zero scores
+                phrases.append(feature_names[idx])
         
-        # Sort by frequency and get top phrases
-        top_phrases = sorted(phrases, key=lambda x: x[1], reverse=True)[:top_n]
-        return [phrase[0] for phrase in top_phrases]
+        return phrases
     except Exception as e:
         st.error(f"Error extracting key phrases: {str(e)}")
         return []
@@ -170,7 +181,7 @@ def main():
         st.write("""
         - Multi-model ensemble classification
         - Key phrase extraction
-        - Confidence scores
+        - Similar article suggestions
         - Real-time analysis
         """)
         
@@ -228,12 +239,12 @@ def main():
             with col2:
                 # Extract and display key phrases
                 st.subheader("Key Phrases")
-                key_phrases = get_key_phrases(article)
+                key_phrases = extract_key_phrases(article)
                 if key_phrases:
                     for phrase in key_phrases:
                         st.write(f"• {phrase}")
                 else:
-                    st.write("No key phrases extracted")
+                    st.write("No key phrases found")
                 
                 # Show example categories
                 st.subheader("Category Examples")
